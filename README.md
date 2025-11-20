@@ -1,29 +1,8 @@
-# 🏦 Nissmart Micro-Savings Platform
+# Nissmart Micro-Savings Platform
 
 > A modern, secure, and scalable micro-savings and payout platform for empowering families and equipping institutions.
 
 **Empowering Families. Equipping Institutions. Transforming Generations.**
-
----
-
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Database Setup](#database-setup)
-- [Running the Application](#running-the-application)
-- [API Documentation](#api-documentation)
-- [Architecture](#architecture)
-- [Security & Transaction Safety](#security--transaction-safety)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-
----
 
 ## 🎯 Overview
 
@@ -143,23 +122,24 @@ Before you begin, ensure you have the following installed:
 
 ## 🚀 Installation
 
-### 1️⃣ Clone or Create the Project
+### Clone or Create the Project
 
 ````bash
 # Create project directory
 mkdir nissmart-micro-savings
 cd nissmart-micro-savings
 
-### 2️⃣ Backend Setup
+### Backend Setup
 
 
-### 1️⃣ Backend Environment Setup
+### Backend Environment Setup
 
 ```bash
 # Navigate to backend
 cd node-backend
 
 # Create .env file
+
 # Database Configuration
 DATABASE_URL="mysql://root:Qwerty123!@localhost:3306/nissmart"
 
@@ -172,7 +152,7 @@ FRONTEND_URL=http://localhost:3000
 
 ````
 
-### 3️⃣ Frontend Environment Setup
+### Frontend Environment Setup
 
 ```bash
 cd ../frontend
@@ -181,7 +161,7 @@ REACT_APP_API_URL=http://localhost:5000/api
 
 ```
 
-### 2️⃣ Create Database
+### Create Database
 
 ```
 # Create the nissmart database
@@ -189,7 +169,7 @@ mysql -u root -pYOUR_PASSWORD -e "CREATE DATABASE IF NOT EXISTS nissmart;"
 
 ```
 
-### 3️⃣ Run Prisma Migrations
+### Run Prisma Migrations
 
 ```
 # Navigate to backend
@@ -228,14 +208,11 @@ npm run dev
 ```bash
 cd frontend
 
-# Start React development server
+npm install
+
+# Start Nextjs development server
 npm start
 
-# Expected output:
-# Compiled successfully!
-# Webpack compiled with 1 warning
-# You can now view nissmart-frontend in the browser.
-# Local: http://localhost:3000
 ```
 
 ---
