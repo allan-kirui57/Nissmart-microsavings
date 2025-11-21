@@ -122,64 +122,15 @@ Before you begin, ensure you have the following installed:
 
 ## 🚀 Installation
 
-### Clone or Create the Project
+### Clone the Project
 
-````bash
+```bash
 # Create project directory
-mkdir nissmart-micro-savings
 cd nissmart-micro-savings
 
 ### Backend Setup
 
-
-### Backend Environment Setup
-
-```bash
-# Navigate to backend
-cd node-backend
-
-# Create .env file
-
-# Database Configuration
-DATABASE_URL="mysql://root:Qwerty123!@localhost:3306/nissmart"
-
-# Server Configuration
-PORT=5000
-NODE_ENV=development
-
-# Frontend URL (for CORS)
-FRONTEND_URL=http://localhost:3000
-
-````
-
-### Frontend Environment Setup
-
-```bash
-cd ../frontend
-
-REACT_APP_API_URL=http://localhost:5000/api
-
-```
-
-### Create Database
-
-```
-# Create the nissmart database
-mysql -u root -pYOUR_PASSWORD -e "CREATE DATABASE IF NOT EXISTS nissmart;"
-
-```
-
-### Run Prisma Migrations
-
-```
-# Navigate to backend
-cd node-backend
-
-# Generate Prisma client
-npx prisma generate
-
-# Run migrations (creates all tables)
-npx prisma migrate dev --name init
+### Frontend Setup
 
 ```
 
@@ -187,12 +138,31 @@ npx prisma migrate dev --name init
 
 ## ▶️ Running the Application
 
-### Option 1️⃣: Development Mode (Recommended)
+### Development Mode (Recommended)
 
 #### Terminal 1 - Backend
 
 ```bash
+
 cd node-backend
+
+npm install
+
+# Create the nissmart database
+# Create a .env file
+# Copy below into the .env
+
+DATABASE_URL="mysql://<USERNAME>:<PASSWORD>@localhost:3306/nissmart"
+PORT=5000
+NODE_ENV=development
+FRONTEND_URL=http://localhost:3000
+
+
+# Generate Prisma client
+npx prisma generate
+
+# Run migrations (creates all tables)
+npx prisma migrate dev --name init
 
 # Start backend with auto-reload
 npm run dev
@@ -215,4 +185,4 @@ npm start
 
 ```
 
----
+## 🎉 You’re all set!

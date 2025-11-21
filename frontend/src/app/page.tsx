@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SidebarInset } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -76,27 +76,27 @@ function formatDate(value: string) {
 }
 
 export default function AdminDashboard() {
-  const [summary, setSummary] = React.useState<DashboardSummary | null>(null);
-  const [summaryLoading, setSummaryLoading] = React.useState(true);
+  const [summary, setSummary] = useState<DashboardSummary | null>(null);
+  const [summaryLoading, setSummaryLoading] = useState(true);
 
-  const [transactions, setTransactions] = React.useState<DashboardTransaction[]>(
+  const [transactions, setTransactions] = useState<DashboardTransaction[]>(
     [],
   );
-  const [transactionsTotal, setTransactionsTotal] = React.useState(0);
-  const [transactionsLoading, setTransactionsLoading] = React.useState(true);
+  const [transactionsTotal, setTransactionsTotal] = useState(0);
+  const [transactionsLoading, setTransactionsLoading] = useState(true);
 
-  const [activity, setActivity] = React.useState<DashboardActivityItem[]>([]);
-  const [activityLoading, setActivityLoading] = React.useState(true);
+  const [activity, setActivity] = useState<DashboardActivityItem[]>([]);
+  const [activityLoading, setActivityLoading] = useState(true);
 
   // Filters & pagination
-  const [typeFilter, setTypeFilter] = React.useState<string>("");
-  const [userFilter, setUserFilter] = React.useState<string>("");
-  const [fromDate, setFromDate] = React.useState<string>("");
-  const [toDate, setToDate] = React.useState<string>("");
-  const [page, setPage] = React.useState(1);
+  const [typeFilter, setTypeFilter] = useState<string>("");
+  const [userFilter, setUserFilter] = useState<string>("");
+  const [fromDate, setFromDate] = useState<string>("");
+  const [toDate, setToDate] = useState<string>("");
+  const [page, setPage] = useState(1);
   const pageSize = 10;
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchSummary = async () => {
       try {
         setSummaryLoading(true);
@@ -113,7 +113,7 @@ export default function AdminDashboard() {
     fetchSummary();
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchTransactions = async () => {
       try {
         setTransactionsLoading(true);
@@ -147,7 +147,7 @@ export default function AdminDashboard() {
     fetchTransactions();
   }, [page, typeFilter, userFilter, fromDate, toDate]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchActivity = async () => {
       try {
         setActivityLoading(true);
@@ -224,7 +224,7 @@ export default function AdminDashboard() {
           <Card>
             <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <CardTitle className="text-sm font-semibold text-slate-50">
+                <CardTitle className="text-sm font-semibold text-black-50">
                   Transactions
                 </CardTitle>
                 <p className="text-xs text-slate-400">
@@ -238,7 +238,7 @@ export default function AdminDashboard() {
                     setPage(1);
                     setTypeFilter(e.target.value);
                   }}
-                  className="h-8 rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100 shadow-sm outline-none focus-visible:ring-1 focus-visible:ring-emerald-500"
+                  className="h-8 rounded-md border border-slate-700 bg-gray-650 px-2 text-[11px] text-slate-900 shadow-sm outline-none focus-visible:ring-1 focus-visible:ring-gray-500"
                 >
                   <option value="">All types</option>
                   <option value="DEPOSIT">Deposits</option>
@@ -252,7 +252,7 @@ export default function AdminDashboard() {
                     setPage(1);
                     setUserFilter(e.target.value);
                   }}
-                  className="h-8 w-32 border-slate-700 bg-slate-900 text-[11px]"
+                  className="h-8 w-32 border-slate-50 bg-slate-50 text-[11px]"
                 />
                 <Input
                   type="date"
@@ -261,7 +261,7 @@ export default function AdminDashboard() {
                     setPage(1);
                     setFromDate(e.target.value);
                   }}
-                  className="h-8 w-32 border-slate-700 bg-slate-900 text-[11px]"
+                  className="h-8 w-32 border-slate-50 bg-slate-50 text-[11px]"
                 />
                 <Input
                   type="date"
@@ -270,12 +270,12 @@ export default function AdminDashboard() {
                     setPage(1);
                     setToDate(e.target.value);
                   }}
-                  className="h-8 w-32 border-slate-700 bg-slate-900 text-[11px]"
+                  className="h-8 w-32 border-slate-50 bg-slate-50 text-[11px]"
                 />
               </div>
             </CardHeader>
             <CardContent className="space-y-3">
-              <div className="rounded-lg border border-slate-800 bg-slate-950/40">
+              <div className="rounded-lg border border-slate-50 bg-slate-50/40">
                 <Table>
                   <TableHeader>
                     <TableRow>

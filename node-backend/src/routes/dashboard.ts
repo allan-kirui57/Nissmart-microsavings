@@ -110,7 +110,7 @@ router.get('/activity', async (req: Request, res: Response, next: NextFunction) 
   }
 });
 
-// --- Transaction flows (used by user/admin flows & demo video) ---
+// Transaction flows (used by user/admin flows
 
 router.post('/deposit', async (req: Request, res: Response, next: NextFunction) => {
   try {
